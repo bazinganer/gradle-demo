@@ -44,6 +44,14 @@ jobs:
         path: ~/.gradle/caches
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
         restore-keys: ${{ runner.os }}-gradle
+    - name: print secrets params
+      run: |
+        token1="${{secrets.GITHUB_TOKEN}}"
+        token2="${{secrets.SONAR_TOKEN}}"
+        token3="${{secrets.SONAR_HOST_URL}}"
+        echo "GITHUB_TOKEN: $token1"
+        echo "SONAR_TOKEN: $token2"
+        echo "SONAR_HOST_URL: $token3"
     - name: analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
