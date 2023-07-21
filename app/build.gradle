@@ -14,6 +14,13 @@ buildscript {
 
 plugins {
     id 'gradle.demo.java-application-conventions'
+    id "org.sonarqube" version "4.2.1.3168"
+}
+sonar {
+    properties {
+        property "sonar.projectKey", "bazinganer_gradle-demo_AYl3d_dxO6edBfndTdmA"
+        property "sonar.projectName", "gradle-demo"
+    }
 }
 
 dependencies {
